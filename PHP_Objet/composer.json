@@ -1,0 +1,11 @@
+{
+    "require": {
+        "psr/log": "1.0.*",
+        "zendframework/zend-servicemanager": "2.6.*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Orange\\": "src/"
+        }
+    }
+}
