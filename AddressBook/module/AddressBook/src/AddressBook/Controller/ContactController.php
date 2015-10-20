@@ -9,4 +9,8 @@ class ContactController extends AbstractActionController
     public function listAction() {
         
     }
+    
+    public function addAction() {
+        
+    }
 }

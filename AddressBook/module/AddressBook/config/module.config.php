@@ -2,8 +2,8 @@
 
 return array(
     'view_manager' => array(
-        'not_found_template'       => 'error/404',
-        'exception_template'       => 'error/index',
+        'not_found_template' => 'error/404',
+        'exception_template' => 'error/index',
         'template_path_stack' => array(
             __DIR__ . '/../view',
         ),
@@ -16,15 +16,28 @@ return array(
     ),
     'router' => array(
         'routes' => array(
-            'contact-list' => array(
+            'contact' => array(
                 'type' => Zend\Mvc\Router\Http\Literal::class,
                 'options' => array(
-                    'route' => '/',
+                    'route' => '/contacts',
                     'defaults' => array(
                         'controller' => 'AddressBook\Controller\Contact',
                         'action' => 'list'
                     ),
                 ),
+                'may_terminate' => true,
+                'child_routes' => array(
+                    'add' => array(
+                        'type' => Zend\Mvc\Router\Http\Literal::class,
+                        'options' => array(
+                            'route' => '/ajouter',
+                            'defaults' => array(
+                                'controller' => 'AddressBook\Controller\Contact',
+                                'action' => 'add'
+                            ),
+                        ),
+                    ),
+                )
             ),
         ),
     ),

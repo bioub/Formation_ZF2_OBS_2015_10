@@ -1,1 +1,15 @@
+<?php $this->headTitle('Liste des contacts'); ?>
+
+<?php $this->headLink()->appendStylesheet(
+        $this->basePath('css/contact-list.css')
+      ); ?>
+
+<?php $this->inlineScript()->captureStart(); ?>
+var h2 = document.querySelector('h2');
+
+setInterval(function() {
+    h2.style.display = (h2.style.display) ? '' : 'none';
+}, 500);
+<?php $this->inlineScript()->captureEnd(); ?>
+
 <h2>Liste des contacts</h2>
