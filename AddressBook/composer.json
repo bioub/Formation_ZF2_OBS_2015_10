@@ -13,13 +13,11 @@
         "zendframework/zend-loader": "^2.5",
         "zendframework/zend-modulemanager": "^2.6",
         "zendframework/zend-config": "^2.5",
-        "zendframework/zend-cache": "^2.5",
-        "zendframework/zend-log": "^2.6",
         "zendframework/zend-view": "^2.5",
         "zendframework/zend-serializer": "^2.5",
+        "zendframework/zend-log": "^2.6",
         "zendframework/zend-i18n": "^2.5",
         "zendframework/zend-console": "^2.5",
-        "zendframework/zend-http": "^2.5",
-        "zendframework/zend-version": "^2.5"
+        "zendframework/zend-http": "^2.5"
     }
 }
