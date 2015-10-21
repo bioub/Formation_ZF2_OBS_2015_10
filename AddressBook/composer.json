@@ -19,6 +19,9 @@
         "zendframework/zend-i18n": "^2.5",
         "zendframework/zend-console": "^2.5",
         "zendframework/zend-http": "^2.5",
-        "zendframework/zend-db": "^2.6"
+        "zendframework/zend-db": "^2.6",
+        "doctrine/doctrine-orm-module": "^0.9.2",
+        "zendframework/zend-developer-tools": "dev-master",
+        "bjyoungblood/bjy-profiler": "dev-master"
     }
 }

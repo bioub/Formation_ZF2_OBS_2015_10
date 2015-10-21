@@ -2,98 +2,192 @@
 
 namespace AddressBook\Entity;
 
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Contact
+ *
+ * @ORM\Table(name="contact", uniqueConstraints={@ORM\UniqueConstraint(name="email_UNIQUE", columns={"email"})}, indexes={@ORM\Index(name="IDX_4C62E638FCF77503", columns={"societe_id"})})
+ * @ORM\Entity
+ */
 class Contact
 {
-
-    // Variables
-    // Toujours protected ou private
-    // On les appelle des :
-    // - propriétés (property)
-    // - attributs (attributes)
-    // - champs (fields)
-    protected $id;
-    protected $prenom;
-    protected $nom;
-    protected $email;
-    protected $telephone;
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
 
     /**
+     * @var string
      *
-     * @var Societe
+     * @ORM\Column(name="prenom", type="string", length=45, nullable=false)
      */
-    protected $societe;
+    private $prenom;
 
-    // Fonctions
-    // On les appelle des méthodes
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nom", type="string", length=45, nullable=false)
+     */
+    private $nom;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="telephone", type="string", length=45, nullable=true)
+     */
+    private $telephone;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="email", type="string", length=45, nullable=true)
+     */
+    private $email;
+
+    /**
+     * @var \AddressBook\Entity\Societe
+     *
+     * @ORM\ManyToOne(targetEntity="AddressBook\Entity\Societe")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="societe_id", referencedColumnName="id")
+     * })
+     */
+    private $societe;
+
+
+
+    /**
+     * Get id
+     *
+     * @return integer
+     */
     public function getId()
     {
         return $this->id;
     }
 
+    /**
+     * Set prenom
+     *
+     * @param string $prenom
+     *
+     * @return Contact
+     */
+    public function setPrenom($prenom)
+    {
+        $this->prenom = $prenom;
+
+        return $this;
+    }
+
+    /**
+     * Get prenom
+     *
+     * @return string
+     */
     public function getPrenom()
     {
         return $this->prenom;
     }
 
+    /**
+     * Set nom
+     *
+     * @param string $nom
+     *
+     * @return Contact
+     */
+    public function setNom($nom)
+    {
+        $this->nom = $nom;
+
+        return $this;
+    }
+
+    /**
+     * Get nom
+     *
+     * @return string
+     */
     public function getNom()
     {
         return $this->nom;
     }
 
-    public function getEmail()
+    /**
+     * Set telephone
+     *
+     * @param string $telephone
+     *
+     * @return Contact
+     */
+    public function setTelephone($telephone)
     {
-        return $this->email;
+        $this->telephone = $telephone;
+
+        return $this;
     }
 
+    /**
+     * Get telephone
+     *
+     * @return string
+     */
     public function getTelephone()
     {
         return $this->telephone;
     }
 
-    public function setId($id)
-    {
-        $this->id = $id;
-        return $this;
-    }
-
-    public function setPrenom($prenom)
-    {
-        $this->prenom = $prenom;
-        return $this;
-    }
-
-    public function setNom($nom)
-    {
-        $this->nom = $nom;
-        return $this;
-    }
-
+    /**
+     * Set email
+     *
+     * @param string $email
+     *
+     * @return Contact
+     */
     public function setEmail($email)
     {
         $this->email = $email;
+
         return $this;
     }
 
-    public function setTelephone($telephone)
+    /**
+     * Get email
+     *
+     * @return string
+     */
+    public function getEmail()
     {
-        $this->telephone = $telephone;
+        return $this->email;
+    }
+
+    /**
+     * Set societe
+     *
+     * @param \AddressBook\Entity\Societe $societe
+     *
+     * @return Contact
+     */
+    public function setSociete(\AddressBook\Entity\Societe $societe = null)
+    {
+        $this->societe = $societe;
+
         return $this;
     }
 
+    /**
+     * Get societe
+     *
+     * @return \AddressBook\Entity\Societe
+     */
     public function getSociete()
     {
         return $this->societe;
     }
-
-    public function setSociete(Societe $societe)
-    {
-        $this->societe = $societe;
-        return $this;
-    }
-
-    public function getNomComplet()
-    {
-        return "$this->prenom $this->nom";
-    }
-
 }
