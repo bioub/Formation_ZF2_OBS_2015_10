@@ -21,6 +21,11 @@
         <?=$this->formElement($contactForm->get('telephone')->setAttribute('class', 'form-control')) ?>
         <?=$this->formElementErrors($contactForm->get('telephone')) ?>
     </div>
+    <div class="form-group">
+        <?=$this->formLabel($contactForm->get('societe')) ?>
+        <?=$this->formElement($contactForm->get('societe')->setAttribute('class', 'form-control')) ?>
+        <?=$this->formElementErrors($contactForm->get('societe')) ?>
+    </div>
     <div>
         <button type="submit" class="btn btn-primary">Ajouter</button>
     </div>

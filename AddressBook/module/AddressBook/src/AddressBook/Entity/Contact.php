@@ -19,35 +19,35 @@ class Contact
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    private $id;
+    protected $id;
 
     /**
      * @var string
      *
      * @ORM\Column(name="prenom", type="string", length=45, nullable=false)
      */
-    private $prenom;
+    protected $prenom;
 
     /**
      * @var string
      *
      * @ORM\Column(name="nom", type="string", length=45, nullable=false)
      */
-    private $nom;
+    protected $nom;
 
     /**
      * @var string
      *
      * @ORM\Column(name="telephone", type="string", length=45, nullable=true)
      */
-    private $telephone;
+    protected $telephone;
 
     /**
      * @var string
      *
      * @ORM\Column(name="email", type="string", length=45, nullable=true)
      */
-    private $email;
+    protected $email;
 
     /**
      * @var \AddressBook\Entity\Societe
@@ -57,7 +57,7 @@ class Contact
      *   @ORM\JoinColumn(name="societe_id", referencedColumnName="id")
      * })
      */
-    private $societe;
+    protected $societe;
 
 
 

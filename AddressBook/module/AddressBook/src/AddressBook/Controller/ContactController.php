@@ -8,6 +8,11 @@ use Zend\View\Model\ViewModel;
 
 class ContactController extends AbstractActionController
 {
+    /**
+     *
+     * @var \Zend\Http\Request
+     */
+    protected $request;
 
     /**
      *
@@ -50,10 +55,15 @@ class ContactController extends AbstractActionController
 
     public function addAction()
     {
-        // TODO à ajouter au service manager
-        // OU ALORS créer une méthode createForm dans le
-        // service
-        $form = new \AddressBook\Form\ContactForm();
+        $form = $this->service->createForm();
+        
+        if ($this->request->isPost()) {
+            $data = $this->request->getPost();
+            
+            if ($this->service->insert($data)) {
+                return $this->redirect()->toRoute('contact');
+            }
+        }
         
         return new ViewModel(array(
             'contactForm' => $form->prepare()
