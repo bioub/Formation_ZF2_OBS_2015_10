@@ -22,29 +22,42 @@ class ContactController extends AbstractActionController
 
     public function listAction()
     {
-//        $adapter = new \Zend\Db\Adapter\Adapter(array(
-//            'driver' => 'Pdo_mysql',
-//            'host' => 'localhost',
-//            'database' => 'address_book',
-//            'username' => 'root',
-//            'password' => '',
-//            'charset' => 'UTF8'
-//        ));
-//
-//        $gateway = new \Zend\Db\TableGateway\TableGateway('contact', $adapter);
-//        $mapper = new \AddressBook\Mapper\ContactZendDbMapper($gateway);
-//        $service = new \AddressBook\Service\ContactZendDbService($mapper);
-
         $listeContacts = $this->service->findAll();
 
         return new ViewModel(array(
             'contacts' => $listeContacts
         ));
     }
+    
+    public function showAction()
+    {
+        // Récupère l'id dans l'URL
+        $id = $this->params('id');
+        
+        // On interroge le model
+        $contact = $this->service->find($id);
+        
+        // Erreur 404 si pas de contact dans la BDD
+        if (!$contact) {
+            return $this->notFoundAction();
+        }
+        
+        // On transmet à la vue
+        return new ViewModel(array(
+           'contact' => $contact 
+        ));
+    }
 
     public function addAction()
     {
+        // TODO à ajouter au service manager
+        // OU ALORS créer une méthode createForm dans le
+        // service
+        $form = new \AddressBook\Form\ContactForm();
         
+        return new ViewModel(array(
+            'contactForm' => $form->prepare()
+        )); 
     }
 
 }

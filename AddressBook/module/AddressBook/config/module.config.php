@@ -69,6 +69,19 @@ return array(
                             ),
                         ),
                     ),
+                    'show' => array(
+                        'type' => Zend\Mvc\Router\Http\Segment::class,
+                        'options' => array(
+                            'route' => '/:id',
+                            'defaults' => array(
+                                'controller' => 'AddressBook\Controller\Contact',
+                                'action' => 'show'
+                            ),
+                            'constraints' => array(
+                                'id' => '[1-9][0-9]*'
+                            )
+                        ),
+                    ),
                 )
             ),
         ),

@@ -26,4 +26,9 @@ class ContactDoctrineService implements ContactServiceInterface
         return $repo->findAll();
     }
 
+    public function find($id)
+    {
+        $repo = $this->getRepository();
+        return $repo->find($id);
+    }
 }

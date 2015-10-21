@@ -1,0 +1,13 @@
+<h2><?=$contact->getPrenom()?> <?=$contact->getNom()?></h2>
+
+<?php if ($contact->getTelephone()) : ?>
+<p>Téléphone : <?=$contact->getTelephone()?></p>
+<?php endif; ?>
+
+<?php if ($contact->getEmail()) : ?>
+<p>Email : <?=$contact->getEmail()?></p>
+<?php endif; ?>
+
+<?php if ($contact->getSociete()) : ?>
+<p>Société : <?=$contact->getSociete()->getNom()?></p>
+<?php endif; ?>

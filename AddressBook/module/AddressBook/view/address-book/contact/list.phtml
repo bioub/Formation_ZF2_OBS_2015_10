@@ -20,6 +20,9 @@ setInterval(function() {
         <td>
             <?=$c->getPrenom()?> <?=$c->getNom()?>
         </td>
+        <td>
+            <a href="<?=$this->url('contact/show', ['id'=>$c->getId()])?>" class="btn btn-primary btn-xs">Afficher</a>
+        </td>
     </tr>
     <?php endforeach; ?>
 </table>

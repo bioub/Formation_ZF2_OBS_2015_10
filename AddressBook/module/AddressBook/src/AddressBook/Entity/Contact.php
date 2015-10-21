@@ -51,7 +51,7 @@ class Contact
 
     /**
      * @var \AddressBook\Entity\Societe
-     *
+     * ORM\ManyToOne(targetEntity="AddressBook\Entity\Societe", fetch="EAGER")
      * @ORM\ManyToOne(targetEntity="AddressBook\Entity\Societe")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="societe_id", referencedColumnName="id")
