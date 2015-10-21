@@ -2,7 +2,7 @@
 
 namespace AddressBook\Service;
 
-class ContactZendDbService
+class ContactZendDbService implements ContactServiceInterface
 {
 
     /**

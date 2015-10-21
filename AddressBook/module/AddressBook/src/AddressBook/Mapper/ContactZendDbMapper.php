@@ -29,7 +29,11 @@ class ContactZendDbMapper
 
     public function findAll()
     {
-        $rs = $this->gateway->select(); // TODO ajouter une clause LIMIT
+//        $select = new \Zend\Db\Sql\Select('contact');
+//        $select->columns(array('prenom', 'nom'));
+//        $select->limit(100);
+//        $rs = $this->gateway->selectWith($select); // TODO ajouter une clause LIMIT
+        $rs = $this->gateway->select();
         
         $tabContacts = $rs->toArray();
         $contacts = array();

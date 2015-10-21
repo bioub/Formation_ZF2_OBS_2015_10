@@ -2,7 +2,6 @@
 
 use Orange\Entity\Contact;
 use Orange\Entity\Societe;
-use Orange\Logger\FileLoggerAvecInterface;
 
 //require 'src/Entity/Contact.php';
 //require 'src/Entity/Societe.php';
@@ -10,8 +9,8 @@ require 'vendor/autoload.php';
 
 $romain = new Contact();
 
-$romain->setPrenom('Romain');
-$romain->setNom('Bohdanowicz');
+$romain->setPrenom('Romain')
+       ->setNom('Bohdanowicz');
 
 $agoratic = new Societe();
 $agoratic->setNom('Agoratic');
